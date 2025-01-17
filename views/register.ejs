@@ -1,0 +1,32 @@
+<h1><%= title %></h1>
+
+<!-- 注册表单 -->
+<form action="/register" method="POST">
+    <div>
+        <label for="gradeName">Grade:</label>
+        <input type="number" id="gradeName" name="gradeName" required />
+    </div>
+    <div>
+        <label for="className">Class:</label>
+        <input type="text" id="className" name="className" required />
+    </div>
+    <div>
+        <label for="fullName">Name:</label>
+        <input type="text" id="fullName" name="fullName" required />
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+    </div>
+    <button type="submit">Register</button>
+</form>
+
+<p>Already have an account? <a href="/login">Login here</a></p>
+
+<% if (message) { %>
+    <p><%= message %></p>
+<% } %>

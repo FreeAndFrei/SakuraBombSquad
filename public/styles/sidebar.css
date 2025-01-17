@@ -1,0 +1,65 @@
+/* sidebar.css */
+
+/* 侧边栏样式 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;  /* 默认将侧边栏隐藏 */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: right 0.3s ease;
+    z-index: 10000;  /* 确保侧边栏在页面最上层 */
+    padding-top: 60px;
+}
+
+.sidebar.active {
+    right: 0;  /* 侧边栏展开时，靠右显示 */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* 控制侧边栏按钮 */
+#toggle-btn {
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10001; /* 确保按钮浮在其他内容之上 */
+}
+
+#toggle-btn:hover {
+    color: #ff77a9;
+}
+
+/* 主内容区域样式 */
+#main-content {
+    padding: 20px;
+    transition: margin-right 0.3s ease; /* 使主内容区在侧边栏展开时平滑过渡 */
+}
+
+/* 侧边栏展开时，页面内容会向左偏移 */
+.sidebar.active + #main-content {
+    margin-right: 250px;  /* 使页面内容区域向左偏移 250px */
+}

@@ -1,0 +1,38 @@
+<header>
+    <h1><%= title %></h1>
+</header>
+
+<section>
+    <h2>Update Your Personal Information</h2>
+    <form action="/settings" method="POST">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" required>
+        </div>
+
+        <div>
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" placeholder="Leave empty to keep the current password">
+        </div>
+
+        <div>
+            <label for="confirm_password">Original Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm the new password">
+        </div>
+
+        <div>
+            <button type="submit">Save Changes</button>
+        </div>
+    </form>
+
+    <h3>Delete Account</h3>
+    <form action="/delete-account" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone!');">
+        <div>
+            <button type="submit" style="color: red;">Delete My Account</button>
+        </div>
+    </form>
+</section>
+
+<footer>
+    <p><a href="/">Back to Home</a></p>
+</footer>

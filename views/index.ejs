@@ -1,0 +1,65 @@
+<!-- index.ejs -->
+<form action="/" method="GET">
+    <label for="date">Select Date:</label>
+    <div style="display: inline">
+        <input type="date" id="date" name="date" value="<%= selectedDate %>" />
+        <button type="submit">Show Messages</button>
+    </div>
+</form>
+
+<h2>Messages for <%= selectedDate %>:</h2>
+<% if (messages.length > 0) { %>
+    <% messages.forEach(message => { %>
+        <div class="message">
+            <div class="message-content">
+                <%- message.content %> <!-- 渲染 Markdown -->
+
+                <% if (message.attachment) { %>
+                    <% const filePath = message.attachment; %>
+                    <% const fileExtension = path.extname(message.attachment).toLowerCase(); %>
+
+                    <!-- 如果附件是图片，直接显示 -->
+                    <% if (['.jpg', '.jpeg', '.png', '.gif'].includes(fileExtension)) { %>
+                        <img src="<%= filePath %>" alt="Attachment" style="max-width: 100%; height: auto;">
+                    <% } else { %>
+                        <!-- 否则，提供下载链接 -->
+                        <p><a href="<%= filePath %>" target="_blank">Download Attachment</a></p>
+                    <% } %>
+                <% } %>
+            </div>
+            <small>Posted on <%= new Date(message.created_at).toLocaleString() %></small>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No messages found for the selected date.</p>
+<% } %>
+
+<!-- 留言表单 -->
+<h3>Leave a message:</h3>
+<form id="uploadForm" action="/submit" method="POST" enctype="multipart/form-data">
+    <textarea name="content" rows="4" cols="50" placeholder="Enter your message (Markdown supported)"></textarea><br>
+    <label for="attachment"> Attachment (<50MB) <input id='attachment' type="file" name="attachment" /><br></label>
+    <button type="submit">Submit</button>
+    <p id="errorMessage" style="color: red; display: none;"> Attachment must < 50MB</p>
+</form>
+
+<script>
+    const form = document.getElementById('uploadForm');
+    const fileInput = document.getElementById('attachment');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // 最大文件大小 50MB
+    const MAX_FILE_SIZE = 50 * 1024 * 1024;
+
+    form.addEventListener('submit', (event) => {
+        const file = fileInput.files[0];
+
+        // 如果没有选择文件，或者文件大小超出限制，阻止表单提交
+        if (file && file.size > MAX_FILE_SIZE) {
+            event.preventDefault();  // 阻止表单提交
+            errorMessage.style.display = 'block';  // 显示错误消息
+        } else {
+            errorMessage.style.display = 'none';  // 隐藏错误消息
+        }
+    });
+</script>

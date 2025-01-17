@@ -1,0 +1,21 @@
+<h1><%= title %></h1>
+
+<!-- 登录表单 -->
+<form action="/login" method="POST">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="/register">Register here</a></p>
+
+<!-- 显示登录失败时的消息 -->
+<% if (message) { %>
+    <p><%= message %></p>
+<% } %>
