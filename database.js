@@ -13,6 +13,7 @@ db.serialize(() => {
             grade INTEGER NOT NULL,
             username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
+            level INTEGER,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     `);

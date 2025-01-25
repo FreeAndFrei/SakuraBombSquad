@@ -9,6 +9,15 @@ function setupSettingsRoutes(app) {
         if (!user) {
             return res.redirect('/login'); // 如果用户没有登录，跳转到登录页面
         }
+        const { username, password } = req.body;
+        db.get('SELECT * FROM users WHERE username = ?', [username], (err, user) => {
+            if (err || !user || !bcrypt.compareSync(password, user.password)) {
+                return res.render('login', {
+                    title: 'Login',
+                    message: 'Invalid username or password'  // 登录失败时传递 message
+                });
+            }
+        });
         res.render('settings', { user: user, title: 'Settings' });
     });
 
@@ -26,7 +35,7 @@ function setupSettingsRoutes(app) {
             return res.render('error', { title:'Error', message: 'Original password does not match' });
         }
 
-        hashedPassword = bcrypt.hashSync(password, 10);
+        let hashedPassword = bcrypt.hashSync(password, 10);
 
         // 更新用户信息
         const stmt = db.prepare("UPDATE users SET username = ?, password = ? WHERE username = ?");
