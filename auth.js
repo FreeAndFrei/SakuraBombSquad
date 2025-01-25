@@ -72,4 +72,42 @@ function setupAuthRoutes(app) {
     });
 }
 
-module.exports = { setupAuthRoutes };
+
+function routeUser(req, res, not_logged_in, logged_in, admin) {
+
+    const user = req.session.user;
+    console.log(user);
+    if (!user) {
+        if (not_logged_in) {
+            return not_logged_in(req, res);
+        } else {
+            return res.redirect('/login'); // 如果没有登录，跳转到登录页
+        }
+    }
+
+    db.get('SELECT * FROM users WHERE username = ?', [req.session.user.username], (err, user) => {
+        if (err) {
+            return res.render('error', {
+                title: 'Error at checkUser()',
+                message: err
+            })
+        }
+
+        if (err || !user || req.session.user.password !== user.password) {
+            return res.render('login', {
+                title: 'Login',
+                message: 'Invalid username or password'  // 登录失败时传递 message
+            });
+        }
+
+        if (user.level >= 3 && admin) {
+            return admin(req, res);
+        } else{
+            if (logged_in) {
+                return logged_in(req, res);
+            }
+        }
+    });
+}
+
+module.exports = { setupAuthRoutes, routeUser };
