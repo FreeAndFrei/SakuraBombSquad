@@ -15,9 +15,22 @@ ejs marked moment sqlite3 uuid bycrpt multer
 ```
 ## Build 编译
 
-Absolutely no need to build, get node and its packages ready and just run.
+No need to build, get node and its packages ready. 
 
-无需编译, 直接配置好 node 和包, 然后即可运行. 
+无需编译, 直接配置好 node 和包即可.
+
+## Deploy 配置
+
+For convenience run `node deploy.js` to get a default admin account as shown below.
+```
+username: root
+password: 114514
+```
+***Please change the password for security!*** 
+
+方便起见, 运行 `node deploy.js` 来获得一个默认管理员账号, 信息如上.
+
+***安全起见, 务必更换默认密码***
 
 ## Run 运行
 
