@@ -1,0 +1,45 @@
+<!-- index.ejs -->
+<form action="/" method="GET">
+    <label for="date">Select Date:</label>
+    <div style="display: inline">
+        <input type="date" id="date" name="date" value="<%= selectedDate %>" />
+        <button type="submit">Show Messages</button>
+    </div>
+</form>
+
+<form action="/admin/add-admin" method="post">
+    <label for="new-admin"> Add Admin (type username in): </label>
+    <input type="text" id="new-admin" name="new_admin">
+    <button type="submit">Add Admin</button>
+</form>
+
+<h2>Messages for <%= selectedDate %>:</h2>
+<% if (messages.length > 0) { %>
+    <% messages.forEach(message => { %>
+        <div class="message">
+            <div class="message-content">
+                <%- message.content %> <!-- 渲染 Markdown -->
+
+                <% if (message.attachment) { %>
+                    <% const filePath = message.attachment; %>
+                    <% const fileExtension = path.extname(message.attachment).toLowerCase(); %>
+
+                    <!-- 如果附件是图片，直接显示 -->
+                    <% if (['.jpg', '.jpeg', '.png', '.gif'].includes(fileExtension)) { %>
+                        <img src="<%= filePath %>" alt="Attachment" style="max-width: 100%; height: auto;">
+                    <% } else { %>
+                        <!-- 否则，提供下载链接 -->
+                        <p><a href="<%= filePath %>" target="_blank">Download Attachment</a></p>
+                    <% } %>
+                <% } %>
+            </div>
+            <small>Posted on <%= new Date(message.created_at).toLocaleString() %></small>
+            <form action="/admin/delete-post" method="post">
+                <input type="hidden" name="post_id" value="<%= message.id %>">
+                <button type="submit"> Delete Post </button>
+            </form>
+        </div>
+    <% }) %>
+<% } else { %>
+    <p>No messages found for the selected date.</p>
+<% } %>

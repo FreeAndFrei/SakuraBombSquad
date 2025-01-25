@@ -2,9 +2,14 @@
 
 ## Intro 介绍
 
-See views/about.ejs for both English and Simplified Chinese version. 
+See `views/about.ejs` for both English and Simplified Chinese version. 
 
-英文和简中介绍见 views/about.ejs. 
+Admin panel is at `localhost:xxx/admin`
+
+英文和简中介绍见 `views/about.ejs`.
+
+管理员面板在 `localhost:xxx/admin`
+
 
 ## Env 环境
 

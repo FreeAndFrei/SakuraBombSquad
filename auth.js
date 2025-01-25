@@ -57,8 +57,8 @@ function setupAuthRoutes(app) {
 
             const hashedPassword = bcrypt.hashSync(password, 10);
 
-            db.run('INSERT INTO users (grade, class, name, username, password) VALUES (?, ?, ?, ?, ?)',
-                [gradeName, className, fullName, username, hashedPassword],
+            db.run('INSERT INTO users (grade, class, name, username, password, level) VALUES (?, ?, ?, ?, ?, ?)',
+                [gradeName, className, fullName, username, hashedPassword, 0],
                 function (err) {
                     if (err) {
                         return res.render('register', {
@@ -100,12 +100,16 @@ function routeUser(req, res, not_logged_in, logged_in, admin) {
             });
         }
 
-        if (user.level >= 3 && admin) {
-            return admin(req, res);
+        if (user.level >= 3) {
+            if (admin) {
+                return admin(req, res);
+            }
+            return res.redirect('/admin');
         } else{
             if (logged_in) {
                 return logged_in(req, res);
             }
+            return res.redirect('/');
         }
     });
 }

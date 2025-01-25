@@ -6,6 +6,7 @@ const { setupMessageRoutes } = require('./message');
 const { setupAuthRoutes } = require('./auth');
 const upload = require('./upload');
 const { setupSettingsRoutes } = require('./settings');
+const { setupAdminRoutes } = require('./admin');
 
 const app = express();
 const port = 3000;
@@ -38,6 +39,7 @@ app.use(upload.single('attachment'));
 setupAuthRoutes(app);
 setupMessageRoutes(app);
 setupSettingsRoutes(app);
+setupAdminRoutes(app);
 
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
