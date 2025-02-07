@@ -53,13 +53,15 @@
     color: #ff77a9;
 }
 
-/* 主内容区域样式 */
+/* 主内容区域样式
 #main-content {
     padding: 20px;
-    transition: margin-right 0.3s ease; /* 使主内容区在侧边栏展开时平滑过渡 */
-}
+    transition: margin-right 0.3s ease; / 使主内容区在侧边栏展开时平滑过渡 /
+} */
 
-/* 侧边栏展开时，页面内容会向左偏移 */
+/*
+/ 侧边栏展开时，页面内容会向左偏移 /
 .sidebar.active + #main-content {
-    margin-right: 250px;  /* 使页面内容区域向左偏移 250px */
+    margin-right: 250px;  / 使页面内容区域向左偏移 250px /
 }
+*/

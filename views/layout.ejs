@@ -25,11 +25,11 @@
 </div>
 
 <!-- 主内容区域 -->
-<div id="main-content">
-    <h1><%= title %></h1>
+<main>
+    <h1 class="page-title"><%= title %></h1>
 
     <% if (!user) { %>
-        <p>Please log in to leave a message.</p> <!-- 登录提醒消息 -->
+        <p class="integrated-message">Please log in to leave a message.</p> <!-- 登录提醒消息 -->
     <% } %>
 
     <!-- 页面内容部分 -->
@@ -39,7 +39,7 @@
         <p>Project: SBS</p>
         <p>Made with love 💖</p>
     </footer>
-</div>
+</main>
 
 <script src="/sidebar.js"></script> <!-- 引入侧边栏 JavaScript -->
 </body>

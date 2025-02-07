@@ -50,12 +50,12 @@ function getMessages(req, res) {
 function setupMessageRoutes(app) {
     // 显示消息的路由
     app.get('/', (req, res) => {
-        auth.routeUser(req, res, getMessages, getMessages, null);
+        auth.routeUser(req, res, getMessages, getMessages, getMessages);
     });
 
     // 上传文件路由
     app.post('/submit', (req, res) => {
-        auth.routeUser(req, res, null, submit, null)
+        auth.routeUser(req, res, null, submit, submit)
     });
 }
 

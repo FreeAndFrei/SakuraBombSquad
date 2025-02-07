@@ -6,8 +6,17 @@ body {
     background: linear-gradient(to bottom right, #fbd8d8, #f7c1d6);  /* 粉色渐变背景 */
     color: #333;
     line-height: 1.6;
-    padding: 30px;
+    padding: 5%;
     background-size: cover;
+}
+
+.page-title {
+    /* 标题样式 */
+    font-family: 'Comic Sans MS', cursive, sans-serif;  /* 为标题也使用可爱的字体 */
+    font-size: 3rem;
+    color: #ff77a9; /* 淡樱花粉色 */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* 标题样式 */
@@ -16,7 +25,6 @@ h1 {
     font-size: 3rem;
     color: #ff77a9; /* 淡樱花粉色 */
     text-align: center;
-    margin-bottom: 20px;
 }
 
 h2 {
@@ -85,7 +93,7 @@ select:focus {
 
 textarea {
     resize: vertical;
-    height: 120px;
+    height: 38%;
 }
 
 button {
@@ -108,10 +116,10 @@ button:hover {
 .message {
     background-color: #fff;
     border: 1px solid #f5b0b0;  /* 更加柔和的边框 */
-    padding: 15px;
+    padding: min(3%, 15px) min(4%, 15px);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 2%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -123,7 +131,7 @@ button:hover {
 .message-content {
     font-size: 1.1rem;
     color: #555;
-    line-height: 1.6;
+    /*line-height: 1.6;*/
 }
 
 .message-content ul,
@@ -173,7 +181,7 @@ input[type="date"] {
     border: 2px solid #ff77a9;
     border-radius: 5px;
     font-size: 1rem;
-    margin-right: 10px;
+    margin-right: 3%;
 }
 
 input[type="date"]:focus {
@@ -193,8 +201,16 @@ footer p {
     color: #ff77a9;  /* 樱花粉色 */
 }
 
-/* 没有留言时的消息 */
+/*
 p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px;
+}
+*/
+
+.integrated-message {
     text-align: center;
     font-size: 1.2rem;
     color: #555;

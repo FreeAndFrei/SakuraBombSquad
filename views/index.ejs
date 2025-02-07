@@ -31,13 +31,13 @@
         </div>
     <% }) %>
 <% } else { %>
-    <p>No messages found for the selected date.</p>
+    <p class="integrated-message">No messages found for the selected date.</p>
 <% } %>
 
 <!-- 留言表单 -->
 <h3>Leave a message:</h3>
 <form id="uploadForm" action="/submit" method="POST" enctype="multipart/form-data">
-    <textarea name="content" rows="4" cols="50" placeholder="Enter your message (Markdown supported)"></textarea><br>
+    <label for="comment-textarea"> Comment: <textarea id="comment-textarea" name="content" rows="4" cols="50" placeholder="Enter your message (Markdown supported)"></textarea> </label><br>
     <label for="attachment"> Attachment (<50MB) <input id='attachment' type="file" name="attachment" /><br></label>
     <button type="submit">Submit</button>
     <p id="errorMessage" style="color: red; display: none;"> Attachment must < 50MB</p>
