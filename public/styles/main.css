@@ -2,7 +2,7 @@
 
 /* 页面通用样式 */
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;  /* 使用本地字体，Comic Sans 是一种可爱且圆润的字体 */
+    font-family: 'Comic Sans MS', sans-serif;  /* 使用本地字体，Comic Sans 是一种可爱且圆润的字体 */
     background: linear-gradient(to bottom right, #fbd8d8, #f7c1d6);  /* 粉色渐变背景 */
     padding: 0;
     margin: 0;
@@ -17,7 +17,7 @@ main {
 
 .page-title {
     /* 标题样式 */
-    font-family: 'Comic Sans MS', cursive, sans-serif;  /* 为标题也使用可爱的字体 */
+    font-family: 'Comic Sans MS', "Helvetica", cursive, sans-serif;  /* 为标题也使用可爱的字体 */
     font-size: 3rem;
     color: #ff77a9; /* 淡樱花粉色 */
     text-align: center;
@@ -33,14 +33,14 @@ h1 {
 }
 
 h2 {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     font-size: 2rem;
     color: #ff77a9;
     margin-bottom: 10px;
 }
 
 h3 {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     font-size: 1.5rem;
     color: #ff77a9;
 }
@@ -80,7 +80,7 @@ select {
     border: 2px solid #ff77a9;
     border-radius: 8px;
     font-size: 1rem;
-    font-family: 'Comic Sans MS', cursive, sans-serif;  /* 输入框也使用可爱字体 */
+    font-family: 'Comic Sans MS', sans-serif;  /* 输入框也使用可爱字体 */
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
@@ -105,7 +105,7 @@ input[type="date"] {
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.2rem;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     transition: background-color 0.3s ease;
 }
 
@@ -121,7 +121,7 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.2rem;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     transition: background-color 0.3s ease;
 }
 
@@ -143,6 +143,7 @@ footer {
 
 footer p {
     color: #ff77a9;  /* 樱花粉色 */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 /*
