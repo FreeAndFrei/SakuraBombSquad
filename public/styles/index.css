@@ -1,6 +1,78 @@
-.integrated-message {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #555;
-    margin-top: 20px;
+#data-selection div{
+    display: inline;
 }
+#data-selection div input, button{
+    margin: 1%;
+}
+
+/* 留言样式 */
+.message {
+    background-color: #fff;
+    border: 1px solid #f5b0b0;  /* 更加柔和的边框 */
+    padding: min(3%, 15px) min(4%, 15px);
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.message-content {
+    font-size: 1.1rem;
+    color: #555;
+    /*line-height: 1.6;*/
+}
+
+.message-content ul,
+.message-content ol {
+    padding-left: 20px;
+}
+
+.message-content li {
+    margin-bottom: 5px;
+}
+
+.message-content blockquote {
+    border-left: 4px solid #ff77a9;
+    padding-left: 20px;
+    margin: 10px 0;
+    font-style: italic;
+    color: #777;
+}
+
+.message-content a {
+    color: #ff77a9;
+    text-decoration: underline;
+}
+
+.message-content a:hover {
+    color: #ff4a7b;
+}
+
+.message-content pre {
+    background-color: #f7f7f7;
+    border: 1px solid #ff77a9;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.message-content code {
+    background-color: #f7f7f7;
+    border: 1px solid #ff77a9;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* 输入框样式
+input[type="date"] {
+    padding: 10px;
+    border: 2px solid #ff77a9;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 3%;
+} */

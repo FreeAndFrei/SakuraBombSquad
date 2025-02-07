@@ -1,7 +1,8 @@
 <!-- index.ejs -->
-<form action="/" method="GET">
+<link rel="stylesheet" href="/styles/index.css" />
+<form id="data-selection" action="/" method="GET">
     <label for="date">Select Date:</label>
-    <div style="display: inline">
+    <div>
         <input type="date" id="date" name="date" value="<%= selectedDate %>" />
         <button type="submit">Show Messages</button>
     </div>

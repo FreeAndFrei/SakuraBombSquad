@@ -14,11 +14,11 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/settings">Settings</a></li>
         <% if (!user) { %>
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
         <% } else { %>
+            <li><a href="/settings">Settings</a></li>
             <li><a href="/logout">Logout</a></li>
         <% } %>
     </ul>
@@ -34,12 +34,11 @@
 
     <!-- 页面内容部分 -->
     <%- body %>  <!-- 将页面内容插入这里 -->
-
-    <footer>
-        <p>Project: SBS</p>
-        <p>Made with love 💖</p>
-    </footer>
 </main>
+<footer>
+    <p>Project: SBS</p>
+    <p>Made with 💖 & ☕</p>
+</footer>
 
 <script src="/sidebar.js"></script> <!-- 引入侧边栏 JavaScript -->
 </body>
